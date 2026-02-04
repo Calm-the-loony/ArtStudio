@@ -1,0 +1,432 @@
+/* Hero.css - Дублирование слова "искусство" */
+
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500&display=swap');
+
+.hero {
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Unbounded', sans-serif;
+  padding: 40px 20px;
+  isolation: isolate;
+}
+
+/* Пульсирующий фон */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+  animation: pulseBg 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseBg {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Основной контейнер для всех версий слова */
+.art-words-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* БАЗОВАЯ версия слова */
+.base-word {
+  position: absolute;
+  font-size: 9rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 1;
+  opacity: 1;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+/* ТЕНЬ версия (дублирование №1) */
+.shadow-word {
+  position: absolute;
+  font-size: 9.5rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 0;
+  top: 8px;
+  left: 8px;
+  animation: shadowFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes shadowFloat {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(12px, 12px);
+    opacity: 0.6;
+  }
+}
+
+/* ГРАДИЕНТ версия (дублирование №2) */
+.gradient-word {
+  position: absolute;
+  font-size: 8.5rem;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #8a2be2 0%,
+    transparent 25%,
+    transparent 75%,
+    #ffd700 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 2;
+  opacity: 0.7;
+  animation: gradientMove 4s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* БЛЮР версия (дублирование №3) */
+.blur-word {
+  position: absolute;
+  font-size: 10rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: -1;
+  filter: blur(15px);
+  animation: blurPulse 5s ease-in-out infinite;
+}
+
+@keyframes blurPulse {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+/* ВЫДЕЛЕННЫЕ БУКВЫ версия (дублирование №4) */
+.highlighted-letters {
+  position: absolute;
+  font-size: 8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+.highlighted-letters span {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.highlighted-letters span:nth-child(1) { color: #8a2be2; } /* И */
+.highlighted-letters span:nth-child(4) { color: #ffd700; } /* с */
+.highlighted-letters span:nth-child(7) { color: #32cd32; } /* т */
+.highlighted-letters span:nth-child(8) { animation: letterPulse 2s infinite; } /* в */
+.highlighted-letters span:nth-child(9) { color: #ff6b6b; } /* о */
+
+@keyframes letterPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* СЛЕДЫ версия (дублирование №5) */
+.trail-words {
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  z-index: -2;
+  opacity: 0.4;
+}
+
+.trail-word {
+  font-size: 7rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  animation: trail 8s linear infinite;
+}
+
+.trail-word:nth-child(1) { animation-delay: 0s; }
+.trail-word:nth-child(2) { animation-delay: -1.6s; }
+.trail-word:nth-child(3) { animation-delay: -3.2s; }
+.trail-word:nth-child(4) { animation-delay: -4.8s; }
+.trail-word:nth-child(5) { animation-delay: -6.4s; }
+
+@keyframes trail {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  10% {
+    opacity: 0.1;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+/* Описание сбоку */
+.side-description {
+  position: absolute;
+  left: 5%;
+  bottom: 20%;
+  max-width: 300px;
+  z-index: 10;
+}
+
+.description-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 15px;
+}
+
+.description-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Контролы сбоку */
+.controls {
+  position: absolute;
+  right: 5%;
+  bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 10;
+}
+
+.control-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 5px;
+}
+
+.control-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 10px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.control-button:hover {
+  border-color: rgba(138, 43, 226, 0.8);
+  color: rgba(138, 43, 226, 0.8);
+  background: rgba(138, 43, 226, 0.05);
+}
+
+.control-button.active {
+  border-color: #ffd700;
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+/* Нижняя навигация */
+.bottom-nav {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  z-index: 10;
+}
+
+.nav-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(138, 43, 226, 0.8);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 7rem;
+  }
+  
+  .trail-word {
+    font-size: 5rem;
+  }
+  
+  .blur-word {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .art-words-container {
+    height: 50vh;
+  }
+  
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 5rem;
+  }
+  
+  .trail-word {
+    font-size: 3.5rem;
+  }
+  
+  .blur-word {
+    font-size: 6rem;
+  }
+  
+  .side-description {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .controls {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .bottom-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 3.5rem;
+  }
+  
+  .trail-word {
+    font-size: 2.5rem;
+  }
+  
+  .blur-word {
+    font-size: 4rem;
+  }
+  
+  .bottom-nav {
+    gap: 15px;
+  }
+  
+  .nav-item {
+    font-size: 0.6rem;
+  }
+}

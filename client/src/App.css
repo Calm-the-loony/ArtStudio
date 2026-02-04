@@ -1,0 +1,132 @@
+/* ===== RESET ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== BASE ===== */
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* КЛЮЧЕВОЕ */
+  font-size: 18px;          /* было мелко — делаем крупнее */
+  line-height: 1.7;         /* комфорт для чтения */
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ===== TEXT ===== */
+
+h1 {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0 0 24px;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: #ffffff;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+span {
+  color: inherit;
+}
+
+/* ===== LINKS & BUTTONS ===== */
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ===== BASIC SECTIONS ===== */
+
+section {
+  width: 100%;
+  padding: 100px 80px;
+}
+
+/* ===== SIMPLE HELPERS ===== */
+
+.text-muted {
+  opacity: 0.8; /* использовать ТОЛЬКО осознанно */
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  section {
+    padding: 80px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  section {
+    padding: 60px 24px;
+  }
+}

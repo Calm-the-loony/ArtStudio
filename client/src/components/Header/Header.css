@@ -1,0 +1,144 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(8,8,8,0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.logo img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg,#8a2be2,#ffd700) border-box;
+}
+
+.logo-glow {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(138,43,226,0.35), transparent 70%);
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+.logo:hover .logo-glow {
+  opacity: 1;
+}
+
+.logo-text span {
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo-text small {
+  display: block;
+  opacity: .6;
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav button.active {
+  color: #fff;
+}
+
+.nav button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background: #8a2be2;
+}
+
+.auth {
+  padding: 10px 24px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.auth:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .nav, .auth { display: none; }
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .burger span {
+    width: 22px;
+    height: 2px;
+    background: #fff;
+  }
+}
+
+.mobile {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  padding: 120px 40px;
+  display: none;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mobile.open { display: flex; }
+
+.mobile button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  text-align: left;
+}

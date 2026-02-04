@@ -1,0 +1,433 @@
+/* ===== Creative Process Section ===== */
+.art-process {
+  padding: 100px 0;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Фон с градиентами */
+.art-process::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 139, 0.3), transparent);
+}
+
+.art-process::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(255, 107, 139, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Контейнер */
+.art-process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Заголовок */
+.art-process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.art-process-title-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.art-process-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.art-process-title-accent {
+  display: block;
+  background: linear-gradient(135deg, #FF6B8B, #4ECDC4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+.art-process-title-main {
+  display: block;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.art-process-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Визуальная линия процесса */
+.art-process-visual {
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.art-process-timeline {
+  position: relative;
+  padding-left: 50px;
+}
+
+.art-process-timeline-line {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 107, 139, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 100%);
+  transform: translateX(-50%);
+}
+
+/* Этапы */
+.art-process-step {
+  position: relative;
+  margin-bottom: 60px;
+  padding-left: 40px;
+}
+
+.art-process-step:last-child {
+  margin-bottom: 0;
+}
+
+/* Маркер на линии */
+.art-process-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.art-process-marker-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--step-color);
+  border-radius: 50%;
+  border: 4px solid #0a0a0a;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 20px var(--step-color);
+  z-index: 2;
+}
+
+.art-process-marker-number {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--step-color);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Карточка этапа */
+.art-process-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.art-process-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--step-color), transparent);
+  opacity: 0.3;
+}
+
+.art-process-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.art-process-card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.art-process-card-icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.art-process-card-title h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.art-process-card-subtitle {
+  font-size: 0.9rem;
+  color: var(--step-color);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.art-process-card-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.art-process-card-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.art-process-card-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.art-process-card-detail-marker {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--step-color);
+  flex-shrink: 0;
+}
+
+/* Цитата */
+.art-process-quote {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 50px;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.art-process-quote-content {
+  position: relative;
+  z-index: 2;
+}
+
+.art-process-quote-mark {
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255, 107, 139, 0.1);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Georgia, serif;
+}
+
+.art-process-quote-text {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.art-process-header {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.art-process-step {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.art-process-step:nth-child(1) { animation-delay: 0.1s; }
+.art-process-step:nth-child(2) { animation-delay: 0.3s; }
+.art-process-step:nth-child(3) { animation-delay: 0.5s; }
+.art-process-step:nth-child(4) { animation-delay: 0.7s; }
+
+.art-process-quote {
+  animation: fadeInUp 0.6s ease-out 0.9s forwards;
+  opacity: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .art-process-title {
+    font-size: 2.8rem;
+  }
+  
+  .art-process-card-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .art-process-timeline {
+    padding-left: 40px;
+  }
+  
+  .art-process-timeline-line {
+    left: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .art-process {
+    padding: 60px 0;
+  }
+  
+  .art-process-title {
+    font-size: 2.2rem;
+  }
+  
+  .art-process-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .art-process-header {
+    margin-bottom: 60px;
+  }
+  
+  .art-process-timeline {
+    padding-left: 30px;
+  }
+  
+  .art-process-timeline-line {
+    left: 30px;
+  }
+  
+  .art-process-step {
+    padding-left: 30px;
+  }
+  
+  .art-process-card {
+    padding: 25px;
+  }
+  
+  .art-process-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .art-process-card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+  
+  .art-process-card-title h3 {
+    font-size: 1.5rem;
+  }
+  
+  .art-process-card-description {
+    font-size: 1rem;
+  }
+  
+  .art-process-quote {
+    padding: 30px 20px;
+  }
+  
+  .art-process-quote-text {
+    font-size: 1.3rem;
+  }
+  
+  .art-process-quote-mark {
+    font-size: 4rem;
+    top: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .art-process-title {
+    font-size: 1.8rem;
+  }
+  
+  .art-process-subtitle {
+    font-size: 1rem;
+  }
+  
+  .art-process-timeline {
+    padding-left: 20px;
+  }
+  
+  .art-process-timeline-line {
+    left: 20px;
+  }
+  
+  .art-process-step {
+    padding-left: 20px;
+  }
+  
+  .art-process-marker-dot {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+  
+  .art-process-card {
+    padding: 20px;
+  }
+}
