@@ -1,8 +1,9 @@
+import React from 'react';
 import './LessonFormat.css';
 
 const LessonFormat = () => {
   const formats = [
-     {
+    {
       id: 1,
       type: 'СТУДИЯ',
       title: 'Живой мастер-класс',
@@ -74,20 +75,21 @@ const LessonFormat = () => {
           <div className="format-bg-orb orb-3"></div>
         </div>
 
-        {/* Заголовок с креативным оформлением */}
+        {/* Заголовок в стиле GalleryPage */}
         <div className="format-header">
-          <div className="format-header-decor">
-            <div className="decor-line"></div>
-            <div className="decor-dot"></div>
-            <div className="decor-line"></div>
+          <div className="format-title-container">
+            <div className="format-title-main">ФОРМАТЫ</div>
+            <div className="format-title-shadow">ФОРМАТЫ</div>
+            
+            <div className="format-title-second-main">ЗАНЯТИЙ</div>
+            <div className="format-title-second-shadow">ЗАНЯТИЙ</div>
+            
+            <div className="format-subtitle-line">
+              3 способа научиться рисовать
+            </div>
           </div>
           
-          <h2 className="format-title">
-            <span className="format-title-top">КАК ПРОХОДЯТ</span>
-            <span className="format-title-bottom">ЗАНЯТИЯ</span>
-          </h2>
-          
-          <p className="format-subtitle">
+          <p className="format-description">
             Выберите свой формат — от живого мастер-класса до видеоуроков
           </p>
         </div>

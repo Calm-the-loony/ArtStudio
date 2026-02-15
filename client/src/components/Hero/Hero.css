@@ -299,47 +299,6 @@
   background: rgba(255, 215, 0, 0.05);
 }
 
-/* Нижняя навигация */
-.bottom-nav {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 40px;
-  z-index: 10;
-}
-
-.nav-item {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-item:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: rgba(138, 43, 226, 0.8);
-  transition: width 0.3s ease;
-}
-
-.nav-item:hover::after {
-  width: 100%;
-}
-
 /* Адаптивность */
 @media (max-width: 1200px) {
   .base-word,
@@ -398,11 +357,6 @@
     margin-top: 30px;
   }
   
-  .bottom-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -422,9 +376,6 @@
     font-size: 4rem;
   }
   
-  .bottom-nav {
-    gap: 15px;
-  }
   
   .nav-item {
     font-size: 0.6rem;

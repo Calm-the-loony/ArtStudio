@@ -1,3 +1,5 @@
+// CreativeProcess.jsx - ИСПРАВЛЕННЫЙ
+import React from 'react';
 import './CreativeProcess.css';
 
 const CreativeProcess = () => {
@@ -5,128 +7,78 @@ const CreativeProcess = () => {
     {
       step: '01',
       title: 'Наблюдение',
-      subtitle: 'Эскиз • 2-3 дня',
-      description: 'Зарисовки, заметки, коллажи. Сбор визуального материала и впечатлений.',
-      details: [
-        'Прогулки и фотосессии',
-        'Быстрые наброски',
-        'Создание мудбордов',
-        'Исследование материалов'
-      ],
-      accentColor: '#FF6B8B',
-      icon: '👁️'
+      description: 'Смотрим, впитываем, находим образ. Первые наброски и идеи.',
+      side: 'left'
     },
     {
       step: '02',
       title: 'Вдохновение',
-      subtitle: 'Идея • 1 день',
-      description: 'Первые линии, поиск композиции, цветовой палитры и настроения.',
-      details: [
-        'Цветовые гармонии',
-        'Композиционные эскизы',
-        'Эмоциональная карта',
-        'Подбор материалов'
-      ],
-      accentColor: '#4ECDC4',
-      icon: '✨'
+      description: 'Выбираем композицию, цвет, настроение будущей работы.',
+      side: 'right'
     },
     {
       step: '03',
       title: 'Создание',
-      subtitle: 'Работа на холсте • 4-10 дней',
-      description: 'Слои краски, текстуры, эксперименты. Интуиция ведёт руку.',
-      details: [
-        'Базовые слои и грунт',
-        'Текстуры и фактуры',
-        'Эксперименты с техниками',
-        'Динамика мазков'
-      ],
-      accentColor: '#45B7D1',
-      icon: '🖌️'
+      description: 'Рисуем. Слой за слоем, от эскиза до готовой картины.',
+      side: 'left'
     },
     {
       step: '04',
       title: 'Завершение',
-      subtitle: 'Финальные штрихи • 1-2 дня',
-      description: 'Финальные штрихи, отражение в зеркале, отдых перед последним взглядом.',
-      details: [
-        'Детальная проработка',
-        'Оценка со стороны',
-        'Корректировка тонов',
-        'Финальная лакировка'
-      ],
-      accentColor: '#96CEB4',
-      icon: '✅'
+      description: 'Финальные штрихи. Работа готова — можно радоваться.',
+      side: 'right'
     }
   ];
 
   return (
     <section className="art-process" id="process">
+      {/* Цветные штрихи на фоне */}
+      <div className="process-bg-decor">
+        <div className="decor-stroke-1"></div>
+        <div className="decor-stroke-2"></div>
+        <div className="decor-stroke-3"></div>
+        <div className="decor-stroke-4"></div>
+      </div>
+
       <div className="art-process-container">
-        {/* Заголовок */}
-        <div className="art-process-header">
-          <div className="art-process-title-wrapper">
-            <h2 className="art-process-title">
-              <span className="art-process-title-accent">МОЙ</span>
-              <span className="art-process-title-main">ТВОРЧЕСКИЙ ПУТЬ</span>
-            </h2>
-            <p className="art-process-subtitle">
-              От идеи до воплощения — путешествие в мир искусства
-            </p>
+        {/* Заголовок в стиле GalleryPage */}
+        <div className="process-header">
+          <div className="process-title-container">
+            <div className="process-title-main">ТВОРЧЕСКИЙ</div>
+            <div className="process-title-shadow">ТВОРЧЕСКИЙ</div>
+            
+            <div className="process-title-second-main">ПРОЦЕСС</div>
+            <div className="process-title-second-shadow">ПРОЦЕСС</div>
+            
+            <div className="process-subtitle-line">
+              1 занятие = 1 рисунок
+            </div>
           </div>
+          
+          <p className="process-description">
+            Как рождается работа в нашей студии
+          </p>
         </div>
 
-        {/* Визуальная линия процесса */}
-        <div className="art-process-visual">
-          <div className="art-process-timeline">
-            <div className="art-process-timeline-line"></div>
-            
-            {stages.map((stage, index) => (
+        {/* Временная линия с этапами */}
+        <div className="process-timeline">
+          <div className="timeline-line"></div>
+          
+          <div className="process-steps">
+            {stages.map((stage) => (
               <div 
                 key={stage.step}
-                className="art-process-step"
-                style={{ '--step-color': stage.accentColor }}
+                className={`process-step ${stage.side}`}
               >
-                {/* Маркер на линии */}
-                <div className="art-process-marker">
-                  <div className="art-process-marker-dot"></div>
-                  <div className="art-process-marker-number">{stage.step}</div>
-                </div>
-
-                {/* Карточка этапа */}
-                <div className="art-process-card">
-                  <div className="art-process-card-header">
-                    <div className="art-process-card-icon">{stage.icon}</div>
-                    <div className="art-process-card-title">
-                      <h3>{stage.title}</h3>
-                      <p className="art-process-card-subtitle">{stage.subtitle}</p>
-                    </div>
-                  </div>
-                  
-                  <p className="art-process-card-description">{stage.description}</p>
-                  
-                  <div className="art-process-card-details">
-                    {stage.details.map((detail, idx) => (
-                      <div key={idx} className="art-process-card-detail">
-                        <div className="art-process-card-detail-marker"></div>
-                        <span>{detail}</span>
-                      </div>
-                    ))}
-                  </div>
+                <div className="step-marker"></div>
+                
+                <div className="step-content">
+                  <div className="step-number">{stage.step}</div>
+                  <h3 className="step-title">{stage.title}</h3>
+                  <p className="step-description">{stage.description}</p>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Цитата */}
-        <div className="art-process-quote">
-          <div className="art-process-quote-content">
-            <div className="art-process-quote-mark">"</div>
-            <p className="art-process-quote-text">
-              Каждая работа — это диалог между художником и миром. 
-              В этом диалоге рождается нечто новое, уникальное и настоящее.
-            </p>
           </div>
         </div>
       </div>

@@ -1,0 +1,1239 @@
+/* ProfilePage.css - полный редизайн в стиле сайта */
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500&display=swap');
+
+.profile-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 140px 0 100px;
+  position: relative;
+  font-family: 'Unbounded', sans-serif;
+}
+
+/* === ФОНОВЫЕ ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ === */
+.profile-bg-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bg-stroke {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0.12;
+}
+
+.bg-stroke.purple {
+  color: #8a2be2;
+  top: 15%;
+  left: 5%;
+  width: 200px;
+  transform: rotate(35deg);
+}
+
+.bg-stroke.gold {
+  color: #ffd700;
+  bottom: 20%;
+  right: 8%;
+  width: 250px;
+  transform: rotate(-20deg);
+}
+
+.bg-stroke.teal {
+  color: #4ECDC4;
+  top: 45%;
+  right: 12%;
+  width: 180px;
+  transform: rotate(10deg);
+}
+
+.bg-stroke.pink {
+  color: #FF6B8B;
+  bottom: 35%;
+  left: 10%;
+  width: 150px;
+  transform: rotate(45deg);
+}
+
+/* === КОНТЕЙНЕР === */
+.profile-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* === ТИПОГРАФИКА === */
+.profile-header {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.profile-title-typography {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.base-word {
+  position: absolute;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 1;
+  opacity: 1;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+.shadow-word {
+  position: absolute;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 6rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 0;
+  top: 8px;
+  left: 8px;
+  animation: shadowFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes shadowFloat {
+  0% { transform: translate(0, 0); opacity: 0.3; }
+  100% { transform: translate(12px, 12px); opacity: 0.6; }
+}
+
+.gradient-word {
+  position: absolute;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #8a2be2 0%, transparent 25%, transparent 75%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 2;
+  opacity: 0.7;
+  animation: gradientMove 4s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.blur-word {
+  position: absolute;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: -1;
+  filter: blur(15px);
+  animation: blurPulse 5s ease-in-out infinite;
+}
+
+@keyframes blurPulse {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.05); }
+}
+
+.highlighted-letters {
+  position: absolute;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+.highlighted-letters span {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.highlighted-letters span.accent {
+  color: #8a2be2;
+}
+
+.highlighted-letters span:nth-child(4) {
+  animation: letterPulse 2s infinite;
+}
+
+@keyframes letterPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* === КАРТОЧКА ПОЛЬЗОВАТЕЛЯ === */
+.profile-user-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 50px;
+  margin-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-user-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8a2be2, transparent);
+  opacity: 0.5;
+}
+
+.profile-user-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.profile-user-letter {
+  font-size: 7rem;
+  font-weight: 900;
+  color: #8a2be2;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #8a2be2;
+  border-radius: 50%;
+  opacity: 0.9;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.profile-user-dimensions {
+  display: flex;
+  gap: 15px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.dimension-separator {
+  opacity: 0.5;
+}
+
+.profile-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-user-name {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.profile-user-email {
+  font-size: 1rem;
+  color: #8a2be2;
+  margin-bottom: 20px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.profile-user-bio {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+/* === СТАТИСТИКА === */
+.profile-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* === КНОПКИ === */
+.profile-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.profile-button {
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+.profile-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.profile-button.primary {
+  background: rgba(138, 43, 226, 0.1);
+  border-color: rgba(138, 43, 226, 0.3);
+  color: #8a2be2;
+}
+
+.profile-button.primary:hover {
+  background: rgba(138, 43, 226, 0.2);
+}
+
+.profile-button.outline {
+  border-color: rgba(138, 43, 226, 0.3);
+  color: #8a2be2;
+}
+
+.profile-button.outline:hover {
+  background: rgba(138, 43, 226, 0.1);
+}
+
+.profile-button.logout {
+  border-color: rgba(255, 107, 139, 0.3);
+  color: #FF6B8B;
+}
+
+.profile-button.logout:hover {
+  background: rgba(255, 107, 139, 0.1);
+}
+
+/* === ТАБЫ === */
+.profile-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+}
+
+.profile-tab {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+.profile-tab:hover {
+  border-color: rgba(138, 43, 226, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.profile-tab.active {
+  background: rgba(138, 43, 226, 0.1);
+  border-color: rgba(138, 43, 226, 0.3);
+  color: #8a2be2;
+}
+
+/* === ЗАГОЛОВКИ СЕКЦИЙ === */
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.section-title-main {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title-shadow {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+.section-subtitle-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-top: 15px;
+  font-weight: 300;
+}
+
+.profile-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 25px;
+  font-family: 'Unbounded', sans-serif;
+}
+
+/* === УРОКИ === */
+.profile-lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.profile-lesson-card {
+  display: flex;
+  gap: 20px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-lesson-card:hover {
+  border-color: rgba(138, 43, 226, 0.3);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.profile-lesson-card.new {
+  border-left: 3px solid #FF6B8B;
+}
+
+.lesson-progress {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.lesson-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson-category {
+  font-size: 0.75rem;
+  color: #8a2be2;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.lesson-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.lesson-duration {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.lesson-button {
+  background: none;
+  border: none;
+  color: #8a2be2;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  text-align: left;
+  font-weight: 500;
+}
+
+.lesson-button:hover {
+  color: #4ECDC4;
+  transform: translateX(5px);
+}
+
+.lesson-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 10px;
+  background: rgba(255, 107, 139, 0.1);
+  border: 1px solid rgba(255, 107, 139, 0.2);
+  border-radius: 20px;
+  color: #FF6B8B;
+  font-size: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* === ЗАВЕРШЁННЫЕ УРОКИ === */
+.profile-completed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.completed-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(78, 205, 196, 0.03);
+  border: 1px solid rgba(78, 205, 196, 0.1);
+  border-radius: 16px;
+}
+
+.completed-check {
+  width: 30px;
+  height: 30px;
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ECDC4;
+  font-size: 1rem;
+}
+
+.completed-info {
+  flex: 1;
+}
+
+.completed-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.completed-category {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* === ЗАПИСИ === */
+.profile-bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+  border-color: rgba(78, 205, 196, 0.3);
+  transform: translateY(-2px);
+}
+
+.booking-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-radius: 16px;
+  min-width: 70px;
+}
+
+.date-day {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4ECDC4;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.8rem;
+  color: rgba(78, 205, 196, 0.8);
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.booking-details {
+  flex: 1;
+}
+
+.booking-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.booking-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.booking-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.booking-status.confirmed {
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  color: #4ECDC4;
+}
+
+.booking-status.pending {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  color: #FFD700;
+}
+
+.booking-link {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #8a2be2, #4ECDC4);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.booking-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+}
+
+/* === ГАЛЕРЕЯ === */
+.profile-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.gallery-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.gallery-card:hover {
+  border-color: rgba(138, 43, 226, 0.3);
+  transform: translateY(-3px);
+}
+
+.gallery-preview {
+  height: 180px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-placeholder {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-info {
+  padding: 20px;
+}
+
+.gallery-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.gallery-lesson {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* === ПУСТЫЕ СОСТОЯНИЯ === */
+.profile-empty-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+.profile-empty-section p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+
+/* === КНОПКА ПОКАЗАТЬ ВСЕ === */
+.profile-show-more {
+  background: none;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  color: #8a2be2;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.profile-show-more:hover {
+  background: rgba(138, 43, 226, 0.1);
+  transform: translateY(-2px);
+}
+
+/* === ЛОАДЕР === */
+.profile-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+}
+
+.profile-spinner {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(138, 43, 226, 0.1);
+  border-top: 2px solid #8a2be2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-top: 40px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === ПУСТОЙ ПРОФИЛЬ === */
+.profile-empty {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.profile-empty-letter {
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(138, 43, 226, 0.1);
+  -webkit-text-stroke: 2px rgba(138, 43, 226, 0.3);
+  margin-bottom: 30px;
+}
+
+.profile-empty-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.profile-empty-text {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 992px) {
+  .profile-user-card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .profile-user-visual {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  
+  .profile-tabs {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 120px 0 60px;
+  }
+  
+  .profile-wrapper {
+    padding: 0 24px;
+  }
+  
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 3.5rem;
+  }
+  
+  .profile-user-card {
+    padding: 30px 24px;
+  }
+  
+  .profile-user-visual {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-user-letter {
+    width: 150px;
+    height: 150px;
+    font-size: 5rem;
+  }
+  
+  .profile-user-name {
+    font-size: 2rem;
+  }
+  
+  .profile-stats {
+    gap: 30px;
+  }
+  
+  .profile-actions {
+    flex-direction: column;
+  }
+  
+  .profile-lessons-grid,
+  .profile-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .booking-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 2.5rem;
+  }
+  
+  .profile-user-letter {
+    width: 120px;
+    height: 120px;
+    font-size: 4rem;
+  }
+  
+  .profile-user-dimensions {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .dimension-separator {
+    display: none;
+  }
+  
+  .profile-user-name {
+    font-size: 1.6rem;
+  }
+  
+  .profile-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .section-title-main,
+  .section-title-shadow {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle-line {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .profile-lesson-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .lesson-progress {
+    align-self: center;
+  }
+}
+/* Добавьте в конец файла ProfilePage.css */
+
+/* Секция навыков */
+.profile-skills-section {
+  margin-bottom: 60px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.skill-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  border-color: #8a2be2;
+  transform: translateY(-2px);
+  background: rgba(138, 43, 226, 0.05);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.skill-count {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.skill-level {
+  display: flex;
+  gap: 8px;
+}
+
+.skill-dot {
+  width: 24px;
+  height: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.skill-dot.active {
+  box-shadow: 0 0 10px currentColor;
+}
+
+/* Секция достижений */
+.profile-achievements-section {
+  margin-bottom: 60px;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.achievement-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  border-color: #FFD700;
+  transform: translateY(-2px);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.achievement-icon {
+  font-size: 2.2rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.achievement-info {
+  flex: 1;
+}
+
+.achievement-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.achievement-status {
+  font-size: 0.75rem;
+  color: #FFD700;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .skills-grid,
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Улучшенные стили для завершенных уроков */
+.profile-completed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.completed-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.05), rgba(138, 43, 226, 0.05));
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.completed-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #4ECDC4, #8a2be2);
+}
+
+.completed-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(78, 205, 196, 0.4);
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.1);
+}
+
+.completed-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: rgba(78, 205, 196, 0.1);
+  border: 2px solid rgba(78, 205, 196, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.completed-check {
+  color: #4ECDC4;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.completed-content {
+  flex: 1;
+}
+
+.completed-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.completed-category {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.completed-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-radius: 20px;
+  color: #4ECDC4;
+  font-size: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Анимация для завершенных уроков */
+@keyframes completedPulse {
+  0% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(78, 205, 196, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0); }
+}
+
+.completed-card {
+  animation: completedPulse 2s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .profile-completed-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .completed-card {
+    padding: 20px;
+  }
+}

@@ -105,14 +105,6 @@ const Hero = () => {
           следы
         </button>
       </div>
-      
-      {/* Навигация */}
-      <div className="bottom-nav">
-        <div className="nav-item">о проекте</div>
-        <div className="nav-item">галерея</div>
-        <div className="nav-item">мастер-классы</div>
-        <div className="nav-item">контакты</div>
-      </div>
     </section>
   );
 };

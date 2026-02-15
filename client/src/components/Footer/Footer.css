@@ -1,4 +1,4 @@
-/* ===== FOOTER ===== */
+/* Обновленный Footer.css - убраны соцсети */
 .footer {
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
@@ -40,6 +40,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  cursor: pointer;
 }
 
 .logo-circle {
@@ -103,17 +104,14 @@
   text-align: right;
 }
 
-/* Центральная часть */
+/* Центральная часть — только навигация */
 .footer-center {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   padding: 30px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   margin-bottom: 30px;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
 .footer-links {
@@ -121,17 +119,20 @@
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer-link {
+  background: none;
+  border: none;
   color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
   font-size: 0.9rem;
   font-weight: 400;
   padding: 6px 12px;
   border-radius: 6px;
   transition: all 0.3s ease;
-  position: relative;
+  cursor: pointer;
+  font-family: 'Unbounded', sans-serif;
 }
 
 .footer-link:hover {
@@ -144,31 +145,6 @@
   height: 4px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-}
-
-.footer-social {
-  display: flex;
-  gap: 15px;
-}
-
-.social-link {
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  transform: translateY(-2px);
 }
 
 /* Нижняя часть */
@@ -236,7 +212,6 @@
   
   .footer-quote {
     max-width: 100%;
-    text-align: left;
   }
   
   .footer-quote p {
@@ -244,9 +219,24 @@
   }
   
   .footer-center {
+    padding: 25px 0;
+  }
+  
+  .footer-links {
     flex-direction: column;
     align-items: flex-start;
-    gap: 25px;
+    width: 100%;
+    gap: 15px;
+  }
+  
+  .link-dot {
+    display: none;
+  }
+  
+  .footer-link {
+    width: 100%;
+    text-align: left;
+    padding: 8px 0;
   }
   
   .footer-bottom {
@@ -260,18 +250,21 @@
 }
 
 @media (max-width: 480px) {
-  .footer-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  .logo-circle {
+    width: 48px;
+    height: 48px;
   }
   
-  .link-dot {
-    display: none;
+  .logo-art {
+    font-size: 1.5rem;
   }
   
-  .footer-link {
-    padding: 8px 0;
+  .logo-title {
+    font-size: 1.1rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 0.75rem;
   }
   
   .copyright {
@@ -282,6 +275,10 @@
   
   .copyright-divider {
     display: none;
+  }
+  
+  .footer-link {
+    font-size: 0.85rem;
   }
 }
 
