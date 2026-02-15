@@ -1,4 +1,3 @@
-/* WorkshopPage.css - ПОЛНЫЙ КОД СТИЛЕЙ */
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500&display=swap');
 
@@ -11,7 +10,6 @@
   font-family: 'Unbounded', sans-serif;
 }
 
-/* === ФОНОВЫЕ ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ === */
 .workshop-bg-decor {
   position: absolute;
   inset: 0;
@@ -59,7 +57,6 @@
   transform: rotate(45deg);
 }
 
-/* === КОНТЕЙНЕР === */
 .workshop-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -68,7 +65,6 @@
   z-index: 2;
 }
 
-/* === ТИПОГРАФИКА КАК НА САЙТЕ === */
 .workshop-header {
   margin-bottom: 80px;
   position: relative;
@@ -229,7 +225,6 @@
   font-weight: 300;
 }
 
-/* === О МАСТЕРСКОЙ === */
 .about-section {
   margin-bottom: 100px;
   padding: 60px 0;
@@ -318,7 +313,6 @@
   transform: rotate(25deg);
 }
 
-/* === ЗАГОЛОВКИ СЕКЦИЙ === */
 .section-header {
   margin-bottom: 60px;
 }
@@ -364,7 +358,6 @@
   font-weight: 300;
 }
 
-/* === ПРОСТРАНСТВО === */
 .studio-section {
   margin-bottom: 100px;
 }
@@ -449,7 +442,6 @@
   font-weight: 300;
 }
 
-/* === ИКОНКИ ВМЕСТО ТЕКСТА === */
 .studio-features-icons {
   display: flex;
   flex-wrap: wrap;
@@ -483,7 +475,6 @@
   letter-spacing: 0.1em;
 }
 
-/* === ОБОРУДОВАНИЕ И МАТЕРИАЛЫ === */
 .tools-section {
   margin-bottom: 100px;
 }
@@ -581,7 +572,6 @@
   transform: scale(6);
 }
 
-/* === ФОРМАТЫ РАБОТЫ === */
 .formats-section {
   margin-bottom: 100px;
 }
@@ -646,7 +636,6 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* === ПРАВИЛА === */
 .rules-section {
   margin-bottom: 100px;
 }
@@ -702,7 +691,6 @@
   font-weight: 300;
 }
 
-/* === МОДАЛЬНОЕ ОКНО === */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -712,7 +700,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 40px;
+  padding: 20px;
 }
 
 .modal-container {
@@ -721,13 +709,15 @@
   border-radius: 24px;
   max-width: 600px;
   width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
   position: relative;
 }
 
 .modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   width: 36px;
   height: 36px;
   background: transparent;
@@ -740,6 +730,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .modal-close:hover {
@@ -749,17 +740,17 @@
 }
 
 .modal-content {
-  padding: 50px 40px 40px;
+  padding: 40px 30px 30px;
   display: grid;
   grid-template-columns: 100px 1fr;
-  gap: 30px;
+  gap: 25px;
 }
 
 .modal-icon-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .modal-icon-large {
@@ -776,7 +767,7 @@
 .modal-details {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .modal-type {
@@ -825,7 +816,6 @@
   font-size: 1rem;
 }
 
-/* === АНИМАЦИИ === */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -854,7 +844,6 @@
 .formats-section { animation-delay: 0.4s; }
 .rules-section { animation-delay: 0.5s; }
 
-/* === АДАПТИВНОСТЬ === */
 @media (max-width: 1200px) {
   .base-word,
   .shadow-word,
@@ -873,6 +862,10 @@
 @media (max-width: 992px) {
   .workshop-page {
     padding: 120px 0 80px;
+  }
+  
+  .workshop-container {
+    padding: 0 30px;
   }
   
   .workshop-title-typography {
@@ -896,9 +889,14 @@
     order: -1;
   }
   
+  .about-letter {
+    font-size: 10rem;
+  }
+  
   .studio-card {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 40px;
   }
   
   .studio-visual {
@@ -915,11 +913,12 @@
 
 @media (max-width: 768px) {
   .workshop-container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
   
   .workshop-title-typography {
     height: 20vh;
+    margin-bottom: 30px;
   }
   
   .base-word,
@@ -927,11 +926,32 @@
   .gradient-word,
   .blur-word,
   .highlighted-letters {
+    font-size: 3.5rem;
+  }
+  
+  .shadow-word {
+    top: 4px;
+    left: 4px;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  }
+  
+  @keyframes shadowFloat {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(6px, 6px); }
+  }
+  
+  .blur-word {
+    font-size: 4.5rem;
+    filter: blur(8px);
+  }
+  
+  .highlighted-letters {
     font-size: 3rem;
   }
   
   .workshop-subtitle {
     font-size: 1.1rem;
+    padding: 0 20px;
   }
   
   .section-title-main,
@@ -939,27 +959,68 @@
     font-size: 2.5rem;
   }
   
+  .section-title-shadow {
+    top: 3px;
+    left: 3px;
+  }
+  
+  .section-subtitle-line {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .about-section {
+    padding: 40px 0;
+    margin-bottom: 60px;
+  }
+  
   .about-title {
     font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-text {
+    font-size: 0.95rem;
+  }
+  
+  .about-letter {
+    font-size: 8rem;
   }
   
   .studio-card {
-    padding: 30px 24px;
+    padding: 30px 20px;
   }
   
   .studio-visual {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
   
   .studio-letter {
     width: 150px;
     height: 150px;
-    font-size: 6rem;
+    font-size: 5rem;
+  }
+  
+  .studio-dimensions {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .dimension-separator {
+    display: none;
   }
   
   .studio-title {
     font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  .studio-description {
+    font-size: 1rem;
+    text-align: center;
   }
   
   .studio-features-icons {
@@ -982,26 +1043,90 @@
   .tool-card {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .tool-icon {
+    font-size: 2rem;
+  }
+  
+  .tool-name {
+    font-size: 1rem;
+  }
+  
+  .tool-type {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+  }
+  
+  .tool-description-preview {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
   }
   
   .formats-grid,
   .rules-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .format-card {
+    padding: 25px 20px;
+  }
+  
+  .format-title {
+    font-size: 1.2rem;
+  }
+  
+  .format-description {
+    font-size: 0.85rem;
+  }
+  
+  .format-features span {
+    font-size: 0.65rem;
+  }
+  
+  .rule-item {
+    padding: 20px;
+  }
+  
+  .rule-heading {
+    font-size: 1rem;
+  }
+  
+  .rule-text {
+    font-size: 0.85rem;
   }
   
   .modal-content {
     grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 50px 30px 40px;
+    gap: 20px;
+    padding: 35px 20px 25px;
   }
   
   .modal-icon-wrapper {
     flex-direction: row;
     justify-content: center;
   }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .modal-description {
+    font-size: 0.9rem;
+  }
+  
+  .modal-close {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 1.4rem;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .workshop-title-typography {
     height: 15vh;
   }
@@ -1010,6 +1135,14 @@
   .shadow-word,
   .gradient-word,
   .blur-word,
+  .highlighted-letters {
+    font-size: 2.5rem;
+  }
+  
+  .blur-word {
+    font-size: 3rem;
+  }
+  
   .highlighted-letters {
     font-size: 2.2rem;
   }
@@ -1024,32 +1157,37 @@
   }
   
   .section-subtitle-line {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.65rem;
+  }
+  
+  .about-title {
+    font-size: 1.5rem;
+  }
+  
+  .about-text {
+    font-size: 0.9rem;
+  }
+  
+  .about-letter {
+    font-size: 6rem;
   }
   
   .studio-letter {
     width: 120px;
     height: 120px;
-    font-size: 4.5rem;
-  }
-  
-  .studio-dimensions {
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-  }
-  
-  .dimension-separator {
-    display: none;
+    font-size: 4rem;
   }
   
   .studio-title {
     font-size: 1.5rem;
   }
   
+  .studio-description {
+    font-size: 0.95rem;
+  }
+  
   .studio-features-icons {
-    gap: 16px 24px;
+    gap: 16px 20px;
   }
   
   .feature-icon {
@@ -1058,5 +1196,109 @@
   
   .feature-label {
     font-size: 0.65rem;
+  }
+  
+  .tool-card {
+    padding: 18px;
+  }
+  
+  .tool-icon {
+    font-size: 1.8rem;
+  }
+  
+  .format-card {
+    padding: 20px 15px;
+  }
+  
+  .format-title {
+    font-size: 1.1rem;
+  }
+  
+  .format-description {
+    font-size: 0.8rem;
+  }
+  
+  .rule-item {
+    padding: 15px;
+  }
+  
+  .modal-content {
+    padding: 30px 15px 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.3rem;
+  }
+  
+  .modal-description {
+    font-size: 0.85rem;
+  }
+  
+  .modal-icon-large {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 2rem;
+  }
+  
+  .blur-word {
+    font-size: 2.5rem;
+  }
+  
+  .workshop-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .section-title-main,
+  .section-title-shadow {
+    font-size: 1.6rem;
+  }
+  
+  .studio-letter {
+    width: 100px;
+    height: 100px;
+    font-size: 3.5rem;
+  }
+  
+  .studio-features-icons {
+    gap: 12px 16px;
+  }
+  
+  .feature-icon {
+    font-size: 1.4rem;
+  }
+  
+  .feature-label {
+    font-size: 0.6rem;
+  }
+  
+  .tool-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .modal-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .workshop-title-typography {
+    height: 40vh;
+  }
+  
+  .modal-container {
+    max-height: 90vh;
+  }
+  
+  .modal-content {
+    padding: 30px 20px 20px;
   }
 }

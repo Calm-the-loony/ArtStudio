@@ -1,4 +1,3 @@
-/* LessonsPage.css */
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500&display=swap');
 
@@ -9,7 +8,6 @@
   min-height: 100vh;
 }
 
-/* Цветные штрихи на фоне */
 .lessons-bg-decor {
   position: absolute;
   inset: 0;
@@ -51,7 +49,6 @@
   transform: rotate(15deg);
 }
 
-/* Контейнер */
 .lessons-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -60,7 +57,6 @@
   z-index: 2;
 }
 
-/* Интерактивная типографика в заголовке */
 .lessons-header {
   text-align: center;
   margin-bottom: 80px;
@@ -419,7 +415,6 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* Стили для загрузки и ошибок */
 .loading-spinner {
   text-align: center;
   padding: 60px;
@@ -462,7 +457,6 @@
   grid-column: 1 / -1;
 }
 
-/* Адаптивность для сетки */
 @media (max-width: 1200px) {
   .base-word,
   .shadow-word,
@@ -538,57 +532,70 @@
   }
   
   .lessons-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin: 20px auto 0;
+    padding: 0 20px;
   }
   
   .lessons-tabs {
     flex-direction: column;
     align-items: center;
+    gap: 8px;
   }
   
   .lesson-tab {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
   
   .lessons-grid {
     grid-template-columns: 1fr;
     gap: 24px;
-    max-width: 450px;
-    margin: 0 auto 60px;
+    max-width: 400px;
+    margin: 0 auto 50px;
   }
   
   .lessons-filters {
-    gap: 8px;
+    gap: 6px;
+    margin-bottom: 40px;
   }
   
   .filter-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
   
   .typography-controls {
-    gap: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .control-button {
-    padding: 6px 12px;
-    font-size: 0.7rem;
+    padding: 5px 10px;
+    font-size: 0.65rem;
   }
   
   .lessons-quote {
-    margin-top: 40px;
-    padding-top: 40px;
+    margin-top: 30px;
+    padding-top: 30px;
   }
   
   .lessons-quote-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  
+  .lessons-quote-author {
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .lessons-title-typography {
-    height: 15vh;
+    height: 18vh;
   }
   
   .base-word,
@@ -599,28 +606,115 @@
     font-size: 2.5rem;
   }
   
+  .shadow-word {
+    top: 4px;
+    left: 4px;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  }
+  
+  @keyframes shadowFloat {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(6px, 6px); }
+  }
+  
   .trail-word {
     font-size: 1.8rem;
   }
   
   .blur-word {
     font-size: 3rem;
+    filter: blur(8px);
   }
   
-  .lessons-subtitle {
-    font-size: 1rem;
+  .highlighted-letters {
+    font-size: 2.2rem;
   }
   
   .typography-controls {
     flex-direction: column;
     align-items: center;
+    gap: 5px;
   }
   
   .control-label {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-size: 0.7rem;
+  }
+  
+  .control-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 12px;
+  }
+  
+  .lessons-filters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .filter-btn {
+    flex: 1 1 auto;
+    min-width: 90px;
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
+  
+  .lessons-grid {
+    max-width: 100%;
+    gap: 20px;
   }
 }
-/* Модальное окно для урока как в WorkshopPage */
+
+@media (max-width: 375px) {
+  .lessons-title-typography {
+    height: 15vh;
+  }
+  
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 2rem;
+  }
+  
+  .trail-word {
+    font-size: 1.5rem;
+  }
+  
+  .blur-word {
+    font-size: 2.5rem;
+  }
+  
+  .lessons-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .filter-btn {
+    min-width: 70px;
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .lessons-title-typography {
+    height: 40vh;
+  }
+  
+  .base-word,
+  .shadow-word,
+  .gradient-word,
+  .blur-word,
+  .highlighted-letters {
+    font-size: 4rem;
+  }
+  
+  .trail-word {
+    font-size: 3rem;
+  }
+}
+
 .lesson-modal-overlay {
   position: fixed;
   inset: 0;
@@ -630,7 +724,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 40px;
+  padding: 20px;
   animation: modalFadeIn 0.2s ease;
 }
 
@@ -645,6 +739,8 @@
   border-radius: 24px;
   max-width: 650px;
   width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
   animation: modalSlideUp 0.3s ease;
 }
@@ -662,8 +758,8 @@
 
 .lesson-modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   width: 36px;
   height: 36px;
   background: transparent;
@@ -844,54 +940,6 @@
   box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-  .lesson-modal-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 40px 30px 30px;
-  }
-
-  .lesson-modal-icon-wrapper {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .lesson-modal-stats {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .lesson-modal-info {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-
-  .lesson-modal-action-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .lesson-modal-container {
-    max-width: 95%;
-  }
-
-  .lesson-modal-content {
-    padding: 35px 20px 25px;
-  }
-
-  .lesson-modal-title {
-    font-size: 1.5rem;
-  }
-
-  .lesson-modal-price {
-    font-size: 1.3rem;
-  }
-}
-/* Добавьте в конец файла LessonsPage.css */
-
 .lesson-modal-actions {
   margin-top: 20px;
   display: flex;
@@ -955,8 +1003,102 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .lesson-modal-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 30px 30px;
+  }
+
+  .lesson-modal-icon-wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .lesson-modal-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lesson-modal-info {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .lesson-modal-action-btn {
+    width: 100%;
+  }
+  
   .lesson-modal-buttons {
     flex-direction: column;
+  }
+  
+  .lesson-modal-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lesson-modal-container {
+    max-width: 95%;
+    max-height: 85vh;
+  }
+
+  .lesson-modal-content {
+    padding: 35px 20px 25px;
+  }
+
+  .lesson-modal-title {
+    font-size: 1.3rem;
+  }
+
+  .lesson-modal-price {
+    font-size: 1.2rem;
+  }
+  
+  .lesson-modal-description {
+    font-size: 0.85rem;
+  }
+  
+  .lesson-modal-stat-item {
+    gap: 3px;
+  }
+  
+  .stat-label {
+    font-size: 0.6rem;
+  }
+  
+  .stat-value {
+    font-size: 0.8rem;
+  }
+  
+  .lesson-modal-buttons {
+    gap: 8px;
+  }
+  
+  .lesson-modal-action-btn,
+  .lesson-modal-complete-btn {
+    padding: 10px 15px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .lesson-modal-content {
+    padding: 30px 15px 20px;
+  }
+  
+  .lesson-modal-title {
+    font-size: 1.1rem;
+  }
+  
+  .lesson-modal-price {
+    font-size: 1rem;
+  }
+  
+  .lesson-modal-buttons {
+    flex-direction: column;
+    gap: 6px;
   }
 }

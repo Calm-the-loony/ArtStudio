@@ -1,4 +1,3 @@
-/* BookingPage.css - ОБНОВЛЕННЫЙ ФАЙЛ */
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500&display=swap');
 
@@ -11,7 +10,6 @@
   font-family: 'Unbounded', sans-serif;
 }
 
-/* Цветные штрихи на фоне */
 .booking-bg-decor {
   position: absolute;
   inset: 0;
@@ -53,7 +51,6 @@
   transform: rotate(20deg);
 }
 
-/* Контейнер */
 .booking-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -62,7 +59,6 @@
   z-index: 2;
 }
 
-/* ЗАГОЛОВОК */
 .booking-header {
   text-align: center;
   margin-bottom: 80px;
@@ -182,7 +178,6 @@
   50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* ИНТРО */
 .booking-intro {
   max-width: 700px;
   margin: 0 auto;
@@ -208,7 +203,6 @@
   font-weight: 300;
 }
 
-/* Заголовок услуг */
 .services-header {
   display: flex;
   align-items: center;
@@ -239,7 +233,6 @@
   font-size: 1rem;
 }
 
-/* Сетка услуг */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -396,7 +389,6 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* КОНТАКТНЫЙ БЛОК — МИНИМАЛИСТИЧНЫЙ */
 .contact-minimal {
   margin: 60px auto;
   max-width: 600px;
@@ -440,7 +432,6 @@
   border-color: rgba(138, 43, 226, 0.6);
 }
 
-/* ========== МОДАЛЬНОЕ ОКНО — ИСПРАВЛЕННАЯ ПРОКРУТКА ========== */
 .booking-modal-overlay {
   position: fixed;
   inset: 0;
@@ -450,8 +441,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 30px;
-  margin-top: 80px;
+  padding: 20px;
+  margin-top: 0;
 }
 
 .booking-modal {
@@ -460,17 +451,16 @@
   border-radius: 20px;
   max-width: 900px;
   width: 100%;
-  max-height: 80vh;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(138, 43, 226, 0.15);
 }
 
-/* Фиксированная шапка */
 .booking-modal-header-fixed {
   flex-shrink: 0;
-  padding: 30px 30px 20px;
+  padding: 25px 30px 15px;
   border-bottom: 1px solid rgba(138, 43, 226, 0.2);
   background: #0f0f0f;
   position: relative;
@@ -478,8 +468,8 @@
 
 .booking-modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   width: 36px;
   height: 36px;
   background: transparent;
@@ -519,32 +509,30 @@
   font-weight: 300;
 }
 
-/* Скроллируемый контент */
 .booking-modal-scroll {
   flex: 1;
   overflow-y: auto;
-  padding: 0 30px 30px;
+  padding: 0 30px 25px;
 }
 
 .booking-modal-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 30px;
-  padding-top: 30px;
+  padding-top: 25px;
 }
 
-/* Левая колонка */
 .booking-modal-left {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .booking-modal-letter-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .booking-modal-letter {
@@ -563,7 +551,7 @@
 .booking-modal-format {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -575,18 +563,18 @@
 .booking-modal-price-block,
 .booking-modal-duration {
   text-align: center;
-  padding: 16px 0;
+  padding: 12px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .booking-modal-price-label,
 .booking-modal-duration-label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .booking-modal-price-value {
@@ -606,28 +594,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px;
+  gap: 6px;
+  padding: 10px;
   background: rgba(138, 43, 226, 0.05);
   border-radius: 10px;
 }
 
 .booking-modal-meet-icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #8a2be2;
 }
 
 .booking-modal-meet-text {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #8a2be2;
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Правая колонка */
 .booking-modal-right {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .booking-modal-description {
@@ -635,15 +622,15 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
-  padding-bottom: 15px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .booking-modal-features-title {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #8a2be2;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -651,7 +638,7 @@
 .booking-modal-features-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .booking-modal-feature-item {
@@ -667,51 +654,47 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-.booking-modal-feature-text {
-  font-weight: 300;
-}
-
 .booking-modal-booking {
   background: rgba(78, 205, 196, 0.03);
   border: 1px solid rgba(78, 205, 196, 0.1);
   border-radius: 12px;
-  padding: 16px;
+  padding: 14px;
   margin-top: 5px;
 }
 
 .booking-modal-booking-title {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #4ECDC4;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .booking-modal-booking-detail {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #fff;
   font-weight: 500;
   margin-bottom: 4px;
 }
 
 .booking-modal-booking-contact {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.6);
   font-family: 'JetBrains Mono', monospace;
 }
 
 .booking-modal-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   margin-top: 10px;
 }
 
 .booking-modal-btn {
   flex: 1;
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -741,7 +724,6 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Скроллбар */
 .booking-modal-scroll::-webkit-scrollbar {
   width: 4px;
 }
@@ -759,7 +741,6 @@
   background: rgba(138, 43, 226, 0.5);
 }
 
-/* Подвал */
 .booking-footer {
   margin-top: 80px;
   padding-top: 40px;
@@ -781,7 +762,20 @@
   text-transform: uppercase;
 }
 
-/* Адаптивность */
+@media (max-width: 1200px) {
+  .booking-title-typography .base-word,
+  .booking-title-typography .shadow-word,
+  .booking-title-typography .gradient-word,
+  .booking-title-typography .blur-word,
+  .booking-title-typography .highlighted-letters {
+    font-size: 6rem;
+  }
+  
+  .booking-title-typography .blur-word {
+    font-size: 7rem;
+  }
+}
+
 @media (max-width: 992px) {
   .booking-modal-layout {
     grid-template-columns: 1fr;
@@ -796,13 +790,13 @@
   
   .booking-modal-letter-wrapper {
     flex: 1;
-    min-width: 120px;
+    min-width: 100px;
   }
   
   .booking-modal-price-block,
   .booking-modal-duration {
     flex: 1;
-    min-width: 140px;
+    min-width: 120px;
   }
   
   .booking-title-typography .base-word,
@@ -819,6 +813,7 @@
   
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
@@ -828,11 +823,12 @@
   }
   
   .booking-container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
   
   .booking-title-typography {
     height: 20vh;
+    margin-bottom: 30px;
   }
   
   .booking-title-typography .base-word,
@@ -843,22 +839,67 @@
     font-size: 3.5rem;
   }
   
+  .booking-title-typography .shadow-word {
+    top: 4px;
+    left: 4px;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  }
+  
+  @keyframes bookingShadowFloat {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(6px, 6px); }
+  }
+  
   .booking-title-typography .blur-word {
     font-size: 4.5rem;
+    filter: blur(8px);
+  }
+  
+  .booking-title-typography .highlighted-letters {
+    font-size: 3rem;
+  }
+  
+  .booking-intro {
+    padding: 25px;
+    margin-bottom: 40px;
   }
   
   .services-header {
     flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
   }
   
   .services-header-title {
     white-space: normal;
     text-align: center;
     font-size: 1rem;
+    flex-wrap: wrap;
   }
   
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .service-visual {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .service-format {
+    white-space: normal;
+    max-width: 100%;
+  }
+  
+  .service-title {
+    min-height: auto;
+    font-size: 1.1rem;
+  }
+  
+  .service-audience {
+    min-height: auto;
   }
   
   .booking-modal {
@@ -867,36 +908,82 @@
   }
   
   .booking-modal-header-fixed {
-    padding: 25px 25px 15px;
+    padding: 20px 20px 15px;
+  }
+  
+  .booking-modal-close {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
   }
   
   .booking-modal-scroll {
-    padding: 0 25px 25px;
+    padding: 0 20px 20px;
   }
   
   .booking-modal-title {
     font-size: 1.5rem;
+    padding-right: 30px;
+  }
+  
+  .booking-modal-layout {
+    padding-top: 15px;
   }
   
   .booking-modal-left {
     flex-direction: column;
+    gap: 15px;
+  }
+  
+  .booking-modal-letter-wrapper {
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .booking-modal-letter {
+    width: 70px;
+    height: 70px;
+    font-size: 3rem;
+  }
+  
+  .booking-modal-price-block,
+  .booking-modal-duration {
+    width: 100%;
   }
   
   .booking-modal-actions {
     flex-direction: column;
+    gap: 8px;
   }
   
-  .service-visual {
+  .booking-modal-btn {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .contact-minimal-content {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
   }
   
-  .service-format {
-    white-space: normal;
+  .contact-minimal-link {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .booking-footer {
+    margin-top: 60px;
+    padding-top: 30px;
+  }
+  
+  .booking-footer p {
+    font-size: 1rem;
+    padding: 0 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .booking-title-typography .base-word,
   .booking-title-typography .shadow-word,
   .booking-title-typography .gradient-word,
@@ -909,6 +996,10 @@
     font-size: 3rem;
   }
   
+  .booking-title-typography .highlighted-letters {
+    font-size: 2.2rem;
+  }
+  
   .booking-intro {
     padding: 20px;
   }
@@ -918,23 +1009,212 @@
   }
   
   .booking-intro-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   
-  .contact-minimal-content {
-    flex-direction: column;
-    text-align: center;
+  .service-card {
+    margin-bottom: 0;
+  }
+  
+  .service-visual {
+    padding: 20px;
+  }
+  
+  .service-info {
+    padding: 20px;
+  }
+  
+  .service-letter {
+    width: 60px;
+    height: 60px;
+    font-size: 2.2rem;
+  }
+  
+  .service-format {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+  
+  .service-title {
+    font-size: 1rem;
+  }
+  
+  .service-audience {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+  }
+  
+  .detail-label {
+    font-size: 0.7rem;
+  }
+  
+  .detail-value {
+    font-size: 0.85rem;
+  }
+  
+  .booking-text {
+    font-size: 0.8rem;
   }
   
   .booking-modal-header-fixed {
-    padding: 20px 20px 15px;
+    padding: 18px 15px 12px;
   }
   
-  .booking-modal-scroll {
-    padding: 0 20px 20px;
+  .booking-modal-close {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
   }
   
   .booking-modal-title {
     font-size: 1.3rem;
+  }
+  
+  .booking-modal-audience {
+    font-size: 0.8rem;
+  }
+  
+  .booking-modal-scroll {
+    padding: 0 15px 15px;
+  }
+  
+  .booking-modal-letter {
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+  }
+  
+  .booking-modal-format {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+  
+  .booking-modal-price-value {
+    font-size: 1.5rem;
+  }
+  
+  .booking-modal-duration-value {
+    font-size: 1.1rem;
+  }
+  
+  .booking-modal-description {
+    font-size: 0.85rem;
+  }
+  
+  .booking-modal-feature-item {
+    font-size: 0.8rem;
+  }
+  
+  .booking-modal-booking-detail {
+    font-size: 0.8rem;
+  }
+  
+  .booking-modal-booking-contact {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .booking-title-typography .base-word,
+  .booking-title-typography .shadow-word,
+  .booking-title-typography .gradient-word,
+  .booking-title-typography .blur-word,
+  .booking-title-typography .highlighted-letters {
+    font-size: 2rem;
+  }
+  
+  .booking-title-typography .blur-word {
+    font-size: 2.5rem;
+  }
+  
+  .booking-intro {
+    padding: 15px;
+  }
+  
+  .booking-intro-name {
+    font-size: 0.9rem;
+  }
+  
+  .booking-intro-text {
+    font-size: 0.8rem;
+  }
+  
+  .service-visual {
+    padding: 15px;
+  }
+  
+  .service-info {
+    padding: 15px;
+  }
+  
+  .service-letter {
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+  }
+  
+  .service-format {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+  
+  .service-title {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  
+  .service-audience {
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+  
+  .detail-item {
+    gap: 5px;
+  }
+  
+  .detail-label {
+    font-size: 0.65rem;
+  }
+  
+  .detail-value {
+    font-size: 0.8rem;
+  }
+  
+  .booking-modal-title {
+    font-size: 1.1rem;
+  }
+  
+  .booking-modal-price-value {
+    font-size: 1.3rem;
+  }
+  
+  .booking-modal-duration-value {
+    font-size: 1rem;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .booking-modal {
+    max-height: 90vh;
+  }
+  
+  .booking-modal-header-fixed {
+    padding: 15px 20px 10px;
+  }
+  
+  .booking-modal-scroll {
+    padding: 0 20px 15px;
+  }
+  
+  .booking-modal-left {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .booking-modal-letter-wrapper {
+    flex-direction: row;
+    width: auto;
   }
 }

@@ -1,5 +1,3 @@
-/* AboutSection.css - С исправленной обводкой */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
@@ -11,7 +9,6 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Текстурный фон с анимированными частицами */
 .about-bg {
   position: absolute;
   inset: 0;
@@ -21,7 +18,6 @@
     url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(255,255,255,0.02)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E");
 }
 
-/* Плавающие цифры на фоне */
 .floating-numbers {
   position: absolute;
   top: 0;
@@ -65,23 +61,21 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 100px;
-  align-items: start;
+  align-items: stretch;
   position: relative;
   z-index: 2;
 }
 
-/* ===== ВИЗУАЛЬНАЯ ЧАСТЬ СЛЕВА ===== */
-
 .about-visual {
   position: relative;
+  height: 100%;
   padding-top: 40px;
 }
 
-/* Анимированная рамка - сделаем ее более заметной */
 .visual-container {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  height: 100%;
   margin-left: auto;
 }
 
@@ -91,11 +85,11 @@
   left: -20px;
   right: 20px;
   bottom: 20px;
-  border: 2px solid rgba(138, 43, 226, 0.4); /* Увеличиваем толщину и яркость */
+  border: 2px solid rgba(138, 43, 226, 0.4);
   border-radius: 24px;
   pointer-events: none;
   animation: borderPulse 3s ease-in-out infinite alternate;
-  box-shadow: 0 0 20px rgba(138, 43, 226, 0.2); /* Добавляем свечение */
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
 }
 
 @keyframes borderPulse {
@@ -105,7 +99,7 @@
     transform: translate(0, 0);
   }
   100% {
-    border-color: rgba(138, 43, 226, 0.6); /* Ярче на пике */
+    border-color: rgba(138, 43, 226, 0.6);
     box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
     transform: translate(8px, -8px);
   }
@@ -114,20 +108,27 @@
 .about-card {
   position: relative;
   width: 100%;
-  height: 480px;
-  background: rgba(0, 0, 0, 0.7);
+  height: calc(100% - 40px);
+  min-height: 560px;
   border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  margin-top: -20px;
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(20px);
   box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.8),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Добавляем четкую внешнюю обводку */
   border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.about-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .about-card::before {
@@ -143,43 +144,20 @@
   );
   animation: rotate 20s linear infinite;
   opacity: 0.5;
+  z-index: 1;
 }
 
 .about-card::after {
   content: '';
   position: absolute;
-  inset: 1px;
-  background: #0a0a0a;
-  border-radius: 23px;
-}
-
-/* Добавляем дополнительную градиентную обводку для контраста */
-.about-card::before {
-  z-index: 1;
-}
-
-.about-card::after {
-  z-index: 1;
-}
-
-.about-card .border-overlay {
-  position: absolute;
   inset: 0;
-  border-radius: 24px;
-  padding: 2px;
   background: linear-gradient(
-    135deg,
-    rgba(138, 43, 226, 0.4),
-    rgba(255, 215, 0, 0.3),
-    rgba(138, 43, 226, 0.4)
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
   );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: 2;
   pointer-events: none;
+  z-index: 2;
 }
 
 @keyframes rotate {
@@ -191,7 +169,6 @@
   }
 }
 
-/* Градиентный акцент в углу */
 .card-accent {
   position: absolute;
   top: 0;
@@ -201,12 +178,12 @@
   background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), transparent 70%);
   border-radius: 0 24px 0 100px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 .card-content {
   position: relative;
-  z-index: 3; /* Поднимаем над всеми слоями */
+  z-index: 3;
   text-align: center;
   padding: 40px;
 }
@@ -245,7 +222,6 @@
   margin-top: 30px;
 }
 
-/* Декоративные элементы вокруг карточки */
 .decorative-dots {
   position: absolute;
   top: 50%;
@@ -285,8 +261,6 @@
     opacity: 1;
   }
 }
-
-/* ===== КОНТЕНТНАЯ ЧАСТЬ СПРАВА ===== */
 
 .about-content {
   padding-top: 20px;
@@ -365,8 +339,6 @@
   font-size: 1.5rem;
 }
 
-/* ===== СТАТИСТИКА ===== */
-
 .about-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -379,7 +351,7 @@
   background: rgba(255, 255, 255, 0.03);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Делаем обводку ярче */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -408,7 +380,7 @@
 .stat:hover {
   transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(138, 43, 226, 0.3); /* Ярче при наведении */
+  border-color: rgba(138, 43, 226, 0.3);
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(138, 43, 226, 0.15);
@@ -440,14 +412,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.stat.purple::after {
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), transparent 70%);
-}
-
-.stat.green::after {
-  background: linear-gradient(135deg, rgba(50, 205, 50, 0.1), transparent 70%);
-}
-
 .stat::after {
   content: '';
   position: absolute;
@@ -459,7 +423,13 @@
   pointer-events: none;
 }
 
-/* ===== АВТОГРАФ ===== */
+.stat.purple::after {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), transparent 70%);
+}
+
+.stat.green::after {
+  background: linear-gradient(135deg, rgba(50, 205, 50, 0.1), transparent 70%);
+}
 
 .signature {
   margin-top: 40px;
@@ -482,20 +452,94 @@
   text-transform: uppercase;
 }
 
-/* ===== АДАПТИВНОСТЬ ===== */
+/* ===== МОБИЛЬНАЯ АДАПТАЦИЯ (компьютерная версия не меняется) ===== */
 
 @media (max-width: 1200px) {
   .about-inner {
     grid-template-columns: 1fr;
-    gap: 80px;
+    gap: 60px;
   }
   
   .about-visual {
     order: 2;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
   }
   
   .visual-container {
     margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .about-card {
+    min-height: 500px;
+  }
+  
+  .about-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .about-content h2 {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .section-label {
+    display: inline-block;
+  }
+  
+  .text-block p {
+    text-align: left;
+  }
+  
+  .decorative-dots {
+    left: -20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about {
+    padding: 150px 0;
+  }
+  
+  .about-inner {
+    gap: 50px;
+    padding: 0 30px;
+  }
+  
+  .about-card {
+    min-height: 450px;
+  }
+  
+  .studio-name {
+    font-size: 3rem;
+  }
+  
+  .about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .text-block p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .about-stats {
+    margin-top: 40px;
+    gap: 20px;
+  }
+  
+  .stat {
+    padding: 25px;
+  }
+  
+  .stat strong {
+    font-size: 2.5rem;
   }
 }
 
@@ -506,104 +550,257 @@
   
   .about-inner {
     padding: 0 24px;
-    gap: 60px;
+    gap: 40px;
   }
   
   .about-card {
-    height: 400px;
+    min-height: 400px;
+  }
+  
+  .visual-border {
+    top: -15px;
+    left: -15px;
+    right: 15px;
+    bottom: 15px;
+    border-width: 1px;
+  }
+  
+  @keyframes borderPulse {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(5px, -5px);
+    }
   }
   
   .studio-name {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
+  }
+  
+  .studio-subtitle {
+    font-size: 1rem;
+    margin-top: 20px;
   }
   
   .about-content h2 {
     font-size: 2.2rem;
   }
   
+  .section-label {
+    font-size: 0.8rem;
+    padding-left: 30px;
+  }
+  
+  .section-label::before {
+    width: 20px;
+  }
+  
   .text-block p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding-left: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .text-block p::before {
+    font-size: 1.2rem;
+  }
+  
+  .about-stats {
+    gap: 16px;
   }
   
   .stat {
-    padding: 24px;
+    padding: 20px;
   }
   
   .stat strong {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  
+  .signature {
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+  
+  .signature-name {
+    font-size: 1.3rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+  .about {
+    padding: 100px 0;
+  }
+  
+  .about-inner {
+    padding: 0 20px;
+    gap: 30px;
+  }
+  
   .about-card {
-    height: 350px;
+    min-height: 350px;
+  }
+  
+  .visual-border {
+    top: -10px;
+    left: -10px;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .card-accent {
+    width: 80px;
+    height: 80px;
   }
   
   .studio-name {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+  
+  .studio-name::after {
+    width: 40px;
+    height: 2px;
+    bottom: -8px;
+  }
+  
+  .studio-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    margin-top: 15px;
+  }
+  
+  .about-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .text-block {
+    margin-bottom: 30px;
+  }
+  
+  .text-block p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
   }
   
   .about-stats {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  
+  .stat {
+    padding: 18px;
+  }
+  
+  .stat strong {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  
+  .stat span {
+    font-size: 0.8rem;
   }
   
   .decorative-dots {
     display: none;
   }
-}
-.about-card {
-  position: relative;
-  width: 100%;
-  height: calc(100% - 40px);
-  min-height: 560px;
-  border-radius: 24px;
-  overflow: hidden;
-  margin-top: -20px;
-}
-
-.about-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  
+  .signature-name {
+    font-size: 1.2rem;
+  }
+  
+  .signature-title {
+    font-size: 0.8rem;
+  }
 }
 
-.about-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
+@media (max-width: 375px) {
+  .about {
+    padding: 80px 0;
+  }
+  
+  .about-card {
+    min-height: 300px;
+  }
+  
+  .studio-name {
+    font-size: 1.6rem;
+  }
+  
+  .studio-name::after {
+    width: 30px;
+  }
+  
+  .studio-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .about-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .text-block p {
+    font-size: 0.85rem;
+    padding-left: 12px;
+  }
+  
+  .stat {
+    padding: 15px;
+  }
+  
+  .stat strong {
+    font-size: 1.6rem;
+  }
+  
+  .signature-name {
+    font-size: 1rem;
+  }
 }
 
-.about-visual {
-  position: relative;
-  height: 100%;
-}
-
-.visual-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-}
-
-.about-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 100px;
-  align-items: stretch;
-  position: relative;
-  z-index: 2;
+@media (max-width: 480px) and (orientation: landscape) {
+  .about {
+    padding: 60px 0;
+  }
+  
+  .about-inner {
+    gap: 20px;
+  }
+  
+  .about-card {
+    min-height: 250px;
+  }
+  
+  .studio-name {
+    font-size: 1.5rem;
+  }
+  
+  .studio-name::after {
+    width: 30px;
+    height: 2px;
+  }
+  
+  .about-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .text-block p {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  
+  .about-stats {
+    margin-top: 20px;
+  }
+  
+  .stat {
+    padding: 12px;
+  }
+  
+  .stat strong {
+    font-size: 1.4rem;
+  }
 }

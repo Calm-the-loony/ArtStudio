@@ -1,4 +1,3 @@
-// Hero.tsx с множественными версиями слова "искусство"
 import { useState } from 'react';
 import './Hero.css';
 

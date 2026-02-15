@@ -1,4 +1,3 @@
-/* Header.css */
 .header {
   position: fixed;
   top: 0;
@@ -100,7 +99,6 @@
   border-radius: 1px;
 }
 
-/* Стили для кнопок авторизации/профиля */
 .header-actions {
   display: flex;
   align-items: center;
