@@ -92,7 +92,6 @@ const AuthPage = ({ onSuccess, navigateTo }) => {
           hasToken: !!savedToken 
         });
         
-        // Показываем сообщение об успехе
         setSuccessMessage(data.message);
         
         // Вызываем коллбек успешной авторизации
@@ -173,7 +172,6 @@ const AuthPage = ({ onSuccess, navigateTo }) => {
     handleSubmit(e);
   };
 
-  // Обработка восстановления пароля
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     if (!forgotPasswordEmail || !validateEmail(forgotPasswordEmail)) {
@@ -616,14 +614,7 @@ const AuthPage = ({ onSuccess, navigateTo }) => {
 
           {isLogin && (
             <div className="auth-forgot">
-              <button 
-                type="button"
-                className="forgot-btn"
-                onClick={() => setShowForgotPasswordModal(true)}
-                disabled={isLoading}
-              >
-                Забыли пароль?
-              </button>
+             
             </div>
           )}
         </form>

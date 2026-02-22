@@ -3,7 +3,6 @@ import CourseCard from '../../components/CourseCard/CourseCard';
 import lessonService from '../../services/lessonService';
 import './LessonsPage.css';
 
-// Утилиты для работы с токенами
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 const tokenUtils = {
@@ -291,7 +290,6 @@ const Lessons = ({ onLessonSelect, isLoggedIn, navigateTo }) => {
       const data = await response.json();
       console.log('📥 Ответ сервера:', data);
       
-      // Всегда обновляем локальное состояние, даже если сервер вернул ошибку
       setCompletedLessons([...completedLessons, lesson.id]);
       
       const updatedUserLessons = userLessons.map(l => 
@@ -301,7 +299,6 @@ const Lessons = ({ onLessonSelect, isLoggedIn, navigateTo }) => {
       
       setSelectedLesson(null);
       
-      // Показываем сообщение
       if (data.success) {
         alert(data.message || '✅ Курс отмечен как пройденный!');
       } else {
@@ -314,7 +311,6 @@ const Lessons = ({ onLessonSelect, isLoggedIn, navigateTo }) => {
     } catch (error) {
       console.error('❌ Ошибка отметки курса:', error);
       
-      // Даже при ошибке обновляем локальное состояние
       setCompletedLessons([...completedLessons, lesson.id]);
       setSelectedLesson(null);
       

@@ -1,8 +1,6 @@
-/* components/CourseCard.css */
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Уникальные классы с префиксом cc- (CourseCard) */
 .cc-card {
   position: relative;
   background: rgba(20, 20, 20, 0.8);
@@ -32,7 +30,6 @@
   flex-direction: column;
 }
 
-/* Верхняя часть карточки */
 .cc-header {
   height: 160px;
   position: relative;
@@ -79,8 +76,6 @@
   color: #fff;
   letter-spacing: 0.05em;
 }
-
-/* Бейджи для страницы уроков */
 .cc-level-badge,
 .cc-type-badge {
   position: absolute;
@@ -123,7 +118,6 @@
   color: #FFD700;
 }
 
-/* Основной контент карточки */
 .cc-content {
   padding: 24px;
   flex-grow: 1;
@@ -159,7 +153,6 @@
   flex-grow: 1;
 }
 
-/* Особенности курса */
 .cc-features {
   list-style: none;
   padding: 0;
@@ -185,8 +178,7 @@
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.4;
 }
-
-/* Метаданные для страницы уроков */
+=
 .cc-lesson-meta {
   display: flex;
   gap: 12px;
@@ -211,7 +203,6 @@
   opacity: 0.7;
 }
 
-/* Нижняя часть карточки */
 .cc-footer {
   display: flex;
   justify-content: space-between;
@@ -292,7 +283,6 @@
   transform: translateX(5px);
 }
 
-/* Эффект свечения */
 .cc-glow {
   position: absolute;
   inset: 0;

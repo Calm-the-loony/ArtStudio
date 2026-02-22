@@ -1,4 +1,3 @@
-// Простая валидация без express-validator
 const validateRegistration = (req, res, next) => {
   const { name, email, password, confirmPassword } = req.body;
   const errors = [];

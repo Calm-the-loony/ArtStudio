@@ -71,7 +71,7 @@
   font-size: 9.5rem;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+  -webkit-text-stroke: 2px rgba(198, 4, 4, 0.15);
   text-transform: uppercase;
   letter-spacing: -0.03em;
   line-height: 0.9;
@@ -233,7 +233,7 @@
 .side-description {
   position: absolute;
   left: 5%;
-  bottom: 20%;
+  bottom: 10%;
   max-width: 300px;
   z-index: 10;
 }

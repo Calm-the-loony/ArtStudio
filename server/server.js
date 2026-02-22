@@ -1,16 +1,13 @@
-// server/server.js
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 
 const authRoutes = require('./routes/authRoutes');
-const lessonRoutes = require('./routes/lessonRoutes'); // Добавляем
+const lessonRoutes = require('./routes/lessonRoutes'); 
 
-// Инициализация приложения
 const app = express();
 
-// Middleware
 app.use(helmet());
 app.use(cors({
   origin: process.env.CLIENT_URL || 'http://localhost:3000',
@@ -21,7 +18,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Базовая проверка сервера
 app.get('/health', (req, res) => {
   res.json({ 
     status: 'OK', 
@@ -30,11 +26,9 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Маршруты API
 app.use('/api/auth', authRoutes);
-app.use('/api/lessons', lessonRoutes); // Добавляем маршруты для уроков
+app.use('/api/lessons', lessonRoutes); 
 
-// Обработка 404
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -42,7 +36,6 @@ app.use((req, res) => {
   });
 });
 
-// Обработка ошибок
 app.use((err, req, res, next) => {
   console.error('Server error:', err);
   
@@ -56,17 +49,14 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Настройка порта
 const PORT = process.env.PORT || 5000;
 
-// Запуск сервера
 app.listen(PORT, () => {
-  console.log(`🚀 Сервер запущен на порту ${PORT}`);
-  console.log(`📁 База данных: ${process.env.DB_NAME || 'art_school'}`);
-  console.log(`🌐 Режим: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Сервер запущен на порту ${PORT}`);
+  console.log(`База данных: ${process.env.DB_NAME || 'art_school'}`);
+  console.log(`Режим: ${process.env.NODE_ENV || 'development'}`);
 });
 
-// Обработка graceful shutdown
 process.on('SIGTERM', () => {
   console.log('SIGTERM получен. Завершение работы...');
   process.exit(0);

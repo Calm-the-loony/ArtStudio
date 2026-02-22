@@ -1,4 +1,3 @@
-// CreativeProcess.jsx - ИСПРАВЛЕННЫЙ
 import React from 'react';
 import './CreativeProcess.css';
 
@@ -32,7 +31,6 @@ const CreativeProcess = () => {
 
   return (
     <section className="art-process" id="process">
-      {/* Цветные штрихи на фоне */}
       <div className="process-bg-decor">
         <div className="decor-stroke-1"></div>
         <div className="decor-stroke-2"></div>
@@ -41,7 +39,6 @@ const CreativeProcess = () => {
       </div>
 
       <div className="art-process-container">
-        {/* Заголовок в стиле GalleryPage */}
         <div className="process-header">
           <div className="process-title-container">
             <div className="process-title-main">ТВОРЧЕСКИЙ</div>
@@ -60,7 +57,6 @@ const CreativeProcess = () => {
           </p>
         </div>
 
-        {/* Временная линия с этапами */}
         <div className="process-timeline">
           <div className="timeline-line"></div>
           

@@ -1,11 +1,9 @@
-// BookingPage.jsx - Услуги и мастер-классы студии ЕлАрт
 import React, { useState } from 'react';
 import './BookingPage.css';
 
 const BookingPage = ({ user, navigateTo }) => {
   const [selectedService, setSelectedService] = useState(null);
 
-  // Услуги студии
   const services = [
     {
       id: 1,
@@ -119,7 +117,6 @@ const BookingPage = ({ user, navigateTo }) => {
 
   return (
     <div className="booking-page">
-      {/* Фон */}
       <div className="booking-bg-decor">
         <div className="booking-stroke purple"></div>
         <div className="booking-stroke gold"></div>
@@ -127,7 +124,6 @@ const BookingPage = ({ user, navigateTo }) => {
       </div>
 
       <div className="booking-container">
-        {/* Заголовок */}
         <div className="booking-header">
           <div className="booking-title-typography">
             <div className="base-word">ЗАПИСЬ</div>
@@ -153,7 +149,6 @@ const BookingPage = ({ user, navigateTo }) => {
           </div>
         </div>
 
-        {/* Основной заголовок услуг */}
         <div className="services-header">
           <div className="services-header-line"></div>
           <div className="services-header-title">
@@ -162,7 +157,6 @@ const BookingPage = ({ user, navigateTo }) => {
           <div className="services-header-line"></div>
         </div>
 
-        {/* Сетка услуг */}
         <div className="services-grid">
           {services.map(service => (
             <div 
@@ -205,7 +199,6 @@ const BookingPage = ({ user, navigateTo }) => {
           ))}
         </div>
 
-        {/* Контактный блок — минималистичный */}
         <div className="contact-minimal">
           <div className="contact-minimal-content">
             <span className="contact-minimal-icon">🌐</span>
@@ -221,11 +214,9 @@ const BookingPage = ({ user, navigateTo }) => {
           </div>
         </div>
 
-        {/* МОДАЛЬНОЕ ОКНО — компактное, с прокруткой */}
         {selectedService && (
           <div className="booking-modal-overlay" onClick={() => setSelectedService(null)}>
             <div className="booking-modal" onClick={e => e.stopPropagation()}>
-              {/* Фиксированная шапка */}
               <div className="booking-modal-header-fixed">
                 <button 
                   className="booking-modal-close"
@@ -239,10 +230,8 @@ const BookingPage = ({ user, navigateTo }) => {
                 </div>
               </div>
 
-              {/* Скроллируемый контент */}
               <div className="booking-modal-scroll">
                 <div className="booking-modal-layout">
-                  {/* Левая колонка */}
                   <div className="booking-modal-left">
                     <div className="booking-modal-letter-wrapper">
                       <div className="booking-modal-letter">{selectedService.letter}</div>
@@ -267,7 +256,6 @@ const BookingPage = ({ user, navigateTo }) => {
                     </div>
                   </div>
 
-                  {/* Правая колонка */}
                   <div className="booking-modal-right">
                     <div className="booking-modal-description">
                       {selectedService.description}
@@ -315,7 +303,6 @@ const BookingPage = ({ user, navigateTo }) => {
           </div>
         )}
 
-        {/* Подвал */}
         <div className="booking-footer">
           <p>Художественная студия «ЕлАрт» ✦ Елена Годионенко</p>
           <small>Все материалы предоставляются ✦ Индивидуальный подход ✦ Google Meet</small>

@@ -6,7 +6,6 @@ const Footer = ({ navigateTo }) => {
     <footer className="footer">
       <div className="footer-content">
         
-        {/* Верхняя часть с логотипом */}
         <div className="footer-top">
           <div className="footer-logo" onClick={() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -27,7 +26,6 @@ const Footer = ({ navigateTo }) => {
           </div>
         </div>
 
-        {/* Центральная часть — ссылки на СТРАНИЦЫ */}
         <div className="footer-center">
           <div className="footer-links">
             <button 
@@ -75,7 +73,6 @@ const Footer = ({ navigateTo }) => {
           </div>
         </div>
 
-        {/* Нижняя часть */}
         <div className="footer-bottom">
           <div className="copyright">
             <span>© {new Date().getFullYear()} ElArt </span>

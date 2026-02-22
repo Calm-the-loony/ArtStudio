@@ -68,14 +68,12 @@ const LessonFormat = () => {
   return (
     <section className="lesson-format" id="format">
       <div className="format-container">
-        {/* Декоративные элементы фона */}
         <div className="format-bg-elements">
           <div className="format-bg-orb orb-1"></div>
           <div className="format-bg-orb orb-2"></div>
           <div className="format-bg-orb orb-3"></div>
         </div>
 
-        {/* Заголовок в стиле GalleryPage */}
         <div className="format-header">
           <div className="format-title-container">
             <div className="format-title-main">ФОРМАТЫ</div>
@@ -94,7 +92,6 @@ const LessonFormat = () => {
           </p>
         </div>
 
-        {/* Карточки в стиле "холстов" */}
         <div className="formats-display">
           {formats.map((format, index) => (
             <div 
@@ -105,12 +102,10 @@ const LessonFormat = () => {
                 '--item-accent': format.accentColor
               }}
             >
-              {/* Декоративный уголок */}
               <div className="format-corner"></div>
               
               {/* Основная карточка */}
               <div className="format-canvas">
-                {/* Верхняя часть с типом */}
                 <div className="format-canvas-header">
                   <div className="format-type">
                     <span className="format-type-icon">{format.icon}</span>
@@ -119,11 +114,9 @@ const LessonFormat = () => {
                   <div className="format-number">0{index + 1}</div>
                 </div>
 
-                {/* Заголовок */}
                 <h4 className="format-canvas-title">{format.title}</h4>
                 <p className="format-canvas-description">{format.description}</p>
 
-                {/* Особенности с иконками */}
                 <div className="format-features-grid">
                   {format.features.map((feature, idx) => (
                     <div key={idx} className="format-feature-item">
@@ -133,7 +126,6 @@ const LessonFormat = () => {
                   ))}
                 </div>
 
-                {/* Детали в виде таблички */}
                 <div className="format-details-plate">
                   <div className="detail-row">
                     <span className="detail-label">Время</span>
@@ -149,21 +141,18 @@ const LessonFormat = () => {
                   </div>
                 </div>
 
-                {/* Интерактивная кнопка */}
                 <button className="format-action-btn">
                   <span>Узнать больше</span>
                   <div className="btn-arrow">→</div>
                 </button>
               </div>
 
-              {/* Декоративные мазки "краски" */}
               <div className="format-paint-stroke stroke-1"></div>
               <div className="format-paint-stroke stroke-2"></div>
             </div>
           ))}
         </div>
 
-        {/* Философская подпись */}
         <div className="format-signature">
           <div className="signature-line"></div>
           <p className="signature-text">

@@ -1,4 +1,3 @@
-/* PopularCourses.css */
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -19,7 +18,6 @@
   z-index: 2;
 }
 
-/* Заголовок секции */
 .section-header {
   margin-bottom: 80px;
 }
@@ -29,7 +27,6 @@
   margin-bottom: 40px;
 }
 
-/* Основной заголовок */
 .section-title-main {
   font-family: 'Unbounded', sans-serif;
   font-size: 4rem;
@@ -56,7 +53,6 @@
   line-height: 0.9;
 }
 
-/* Второй заголовок */
 .section-title-second-main {
   font-family: 'Unbounded', sans-serif;
   font-size: 4rem;
@@ -84,7 +80,6 @@
   line-height: 0.9;
 }
 
-/* Субтитр под заголовком */
 .section-subtitle-line {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
@@ -95,7 +90,6 @@
   font-weight: 300;
 }
 
-/* Описание секции */
 .section-description {
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.7);
@@ -105,7 +99,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Сетка курсов */
 .courses-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -113,7 +106,6 @@
   margin-bottom: 80px;
 }
 
-/* Кнопка "Все курсы" */
 .all-courses-link {
   text-align: center;
   padding-top: 40px;
@@ -154,13 +146,12 @@
   transform: translateX(5px);
 }
 
-/* Адаптивность */
 @media (max-width: 1200px) {
   .courses-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 28px;
   }
-  
+
   .section-title-main,
   .section-title-shadow,
   .section-title-second-main,
@@ -176,7 +167,7 @@
   .section-title-second-shadow {
     font-size: 3rem;
   }
-  
+
   .section-title-second-shadow {
     top: 60px;
   }
@@ -186,41 +177,41 @@
   .popular-courses {
     padding: 80px 0;
   }
-  
+
   .container {
     padding: 0 24px;
   }
-  
+
   .section-header {
     margin-bottom: 60px;
   }
-  
+
   .section-title-main,
   .section-title-shadow,
   .section-title-second-main,
   .section-title-second-shadow {
     font-size: 2.5rem;
   }
-  
+
   .section-title-second-shadow {
     top: 50px;
   }
-  
+
   .section-subtitle-line {
     font-size: 0.8rem;
   }
-  
+
   .section-description {
     font-size: 1.1rem;
   }
-  
+
   .courses-grid {
     grid-template-columns: 1fr;
     gap: 24px;
     max-width: 400px;
     margin: 0 auto 60px;
   }
-  
+
   .all-courses-button {
     padding: 14px 32px;
     font-size: 0.95rem;
@@ -234,20 +225,20 @@
   .section-title-second-shadow {
     font-size: 2rem;
   }
-  
+
   .section-title-second-shadow {
     top: 40px;
   }
-  
+
   .section-subtitle-line {
     font-size: 0.7rem;
     letter-spacing: 0.2em;
   }
-  
+
   .section-description {
     font-size: 1rem;
   }
-  
+
   .all-courses-button {
     width: 100%;
     justify-content: center;
@@ -255,7 +246,6 @@
   }
 }
 
-/* Стили для загрузки и ошибок */
 .loading-spinner {
   text-align: center;
   padding: 60px;
@@ -280,7 +270,9 @@
 }
 
 @keyframes spin {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .error-message {

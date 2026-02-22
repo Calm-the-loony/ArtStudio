@@ -1,4 +1,3 @@
-// client/src/services/lessonService.js
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 class LessonService {
@@ -104,7 +103,6 @@ class LessonService {
     }
   }
 
-  // Форматирование данных для карточек - ЕДИНАЯ СИСТЕМА
   formatLessonForCard(lesson) {
     const colors = this.getLessonColors(lesson);
     
@@ -120,22 +118,19 @@ class LessonService {
       level: lesson.level,
       type: lesson.type,
       students: this.getStudentsCount(lesson.id),
-      // Единые цвета для всех страниц
       gradient: colors.gradient,
       imageColor: colors.imageColor,
       icon: colors.icon,
       features: this.getFeaturesByCategory(lesson.category),
-      isNew: lesson.id > 10, // Пример: новые курсы с id > 10
-      isPopular: lesson.id <= 3, // Пример: популярные курсы с id <= 3
+      isNew: lesson.id > 10, 
+      isPopular: lesson.id <= 3, 
     };
   }
 
-  // Единая система цветов для уроков
   getLessonColors(lesson) {
     const category = lesson.category;
     const level = lesson.level;
     
-    // Базовые цвета по категориям
     const categoryColors = {
       'Рисунок': {
         gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -179,7 +174,6 @@ class LessonService {
       }
     };
 
-    // Вариации по уровню сложности
     const levelVariations = {
       'Начинающий': {
         opacity: 1,
@@ -195,7 +189,6 @@ class LessonService {
       }
     };
 
-    // Получаем базовые цвета по категории
     const baseColors = categoryColors[category] || categoryColors['Рисунок'];
     
     return baseColors;

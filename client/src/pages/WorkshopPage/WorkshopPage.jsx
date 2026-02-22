@@ -1,4 +1,3 @@
-// WorkshopPage.jsx
 import React, { useState } from 'react';
 import './WorkshopPage.css';
 
@@ -81,7 +80,6 @@ const WorkshopPage = () => {
       </div>
 
       <div className="workshop-container">
-        {/* Заголовок */}
         <div className="workshop-header">
           <div className="workshop-title-typography">
             <div className="base-word">МАСТЕРСКАЯ</div>
@@ -104,7 +102,6 @@ const WorkshopPage = () => {
           </div>
         </div>
 
-        {/* О мастерской */}
         <div className="about-section">
           <div className="about-grid">
             <div className="about-content">
@@ -127,7 +124,6 @@ const WorkshopPage = () => {
           </div>
         </div>
 
-        {/* Пространство - ВМЕСТО ТЕКСТА ИКОНКИ */}
         <div className="studio-section">
           <div className="section-header">
             <div className="section-title-container">
@@ -153,7 +149,6 @@ const WorkshopPage = () => {
               <h3 className="studio-title">{studio.title}</h3>
               <p className="studio-description">{studio.description}</p>
               
-              {/* ИКОНКИ ВМЕСТО ТЕКСТА */}
               <div className="studio-features-icons">
                 <div className="feature-icon-item">
                   <span className="feature-icon">☀️</span>
@@ -180,7 +175,6 @@ const WorkshopPage = () => {
           </div>
         </div>
 
-        {/* Оборудование */}
         <div className="tools-section">
           <div className="section-header">
             <div className="section-title-container">
@@ -216,7 +210,6 @@ const WorkshopPage = () => {
           </div>
         </div>
 
-        {/* Форматы */}
         <div className="formats-section">
           <div className="section-header">
             <div className="section-title-container">
@@ -267,7 +260,6 @@ const WorkshopPage = () => {
           </div>
         </div>
 
-        {/* Правила */}
         <div className="rules-section">
           <div className="section-header">
             <div className="section-title-container">
@@ -307,7 +299,6 @@ const WorkshopPage = () => {
         </div>
       </div>
 
-      {/* Модальное окно */}
       {selectedTool && (
         <div className="modal-overlay" onClick={() => setSelectedTool(null)}>
           <div className="modal-container" onClick={e => e.stopPropagation()}>

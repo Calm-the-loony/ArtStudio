@@ -1,4 +1,3 @@
-// client/src/components/PopularCourses/PopularCourses.jsx
 import React, { useState, useEffect } from 'react';
 import CourseCard from '../CourseCard/CourseCard';
 import lessonService from '../../services/lessonService';

@@ -8,7 +8,7 @@ const Header = ({ currentPage, navigateTo, isLoggedIn, onLogout, user }) => {
     { id: 'home', label: 'Главная' },
     { id: 'lessons', label: 'Уроки' },
     { id: 'booking', label: 'Запись' },         
-    { id: 'workshops', label: 'Мастерские' },
+    { id: 'workshops', label: 'Мастерская' },
   ];
 
   const handleAuthClick = () => {
@@ -28,16 +28,13 @@ const Header = ({ currentPage, navigateTo, isLoggedIn, onLogout, user }) => {
     }
   };
 
-  // Получаем имя пользователя для отображения
   const getUserName = () => {
     if (user && user.name) {
-      // Обрезаем имя, если оно слишком длинное
       return user.name.length > 15 ? user.name.substring(0, 12) + '...' : user.name;
     }
     return 'Профиль';
   };
 
-  // Получаем первую букву имени для аватара
   const getUserInitial = () => {
     if (user && user.name) {
       return user.name.charAt(0).toUpperCase();

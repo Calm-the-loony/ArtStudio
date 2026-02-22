@@ -1,4 +1,3 @@
-// hooks/useAuth.js
 import { useState, useEffect } from 'react';
 
 export const useAuth = () => {
@@ -20,7 +19,6 @@ export const useAuth = () => {
           setUser(userData);
         } catch (e) {
           console.error('❌ Ошибка парсинга пользователя:', e);
-          // Очищаем невалидные данные
           localStorage.removeItem('accessToken');
           localStorage.removeItem('refreshToken');
           localStorage.removeItem('user');
@@ -31,7 +29,6 @@ export const useAuth = () => {
 
     checkAuth();
     
-    // Слушаем изменения localStorage (на случай, если изменится в другой вкладке)
     const handleStorageChange = (e) => {
       if (e.key === 'accessToken' || e.key === 'user') {
         checkAuth();

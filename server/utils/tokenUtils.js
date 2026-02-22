@@ -1,9 +1,8 @@
-// server/utils/tokenUtils.js
+
 const jwt = require('jsonwebtoken');
 const pool = require('../config/database');
 
 class TokenUtils {
-  // Генерация access токена
   static generateAccessToken(user) {
     console.log('🔑 Генерация access токена для пользователя:', user.id);
     return jwt.sign(

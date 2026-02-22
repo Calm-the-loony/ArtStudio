@@ -1,4 +1,3 @@
-// components/CourseCard.jsx
 import React from 'react';
 import './CourseCard.css';
 
@@ -12,7 +11,6 @@ const CourseCard = ({ course, variant = 'default', onClick, isLoggedIn }) => {
   return (
     <div className={`cc-card ${variant}`}>
       <div className="cc-card-inner">
-        {/* Верхняя часть с градиентом или цветом */}
         <div 
           className="cc-header"
           style={variant === 'default' 
@@ -38,7 +36,6 @@ const CourseCard = ({ course, variant = 'default', onClick, isLoggedIn }) => {
           )}
         </div>
 
-        {/* Основной контент */}
         <div className="cc-content">
           <div className="cc-title-group">
             <h3>{course.title}</h3>
@@ -47,7 +44,6 @@ const CourseCard = ({ course, variant = 'default', onClick, isLoggedIn }) => {
 
           <p className="cc-description">{course.description}</p>
 
-          {/* Особенности курса */}
           <ul className="cc-features">
             {(course.features || []).map((feature, idx) => (
               <li key={idx}>
@@ -59,7 +55,6 @@ const CourseCard = ({ course, variant = 'default', onClick, isLoggedIn }) => {
             ))}
           </ul>
 
-          {/* Метаданные для страницы уроков */}
           {variant === 'lessons' && (
             <div className="cc-lesson-meta">
               <div className="cc-meta-item">
@@ -79,7 +74,6 @@ const CourseCard = ({ course, variant = 'default', onClick, isLoggedIn }) => {
             </div>
           )}
 
-          {/* Нижняя часть с ценой и кнопкой */}
           <div className="cc-footer">
             <div className="cc-price-block">
               <span className="cc-price-label">стоимость</span>
